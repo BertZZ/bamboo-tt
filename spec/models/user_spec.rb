@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'creates users with secure passwords' do
+    user = create(:user)
+    puts user.password_digest
+    expect(user.password_digest).not_to eq "lettuce123"
+  end
 end
