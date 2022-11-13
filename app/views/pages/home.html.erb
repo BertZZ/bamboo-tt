@@ -4,5 +4,9 @@
 <br>
 <%= link_to "SIGN UP", new_user_path %>
 
+
 <%= link_to "LOGIN", login_path unless current_user %>
-<%= link_to "LOGOUT", logout_path if current_user.present? %>
+<% if current_user.present? %>
+  <%= link_to "LOGOUT", logout_path  %>
+  <%= link_to "VIEW BALANCE", user_wallet_path(current_user.wallet.id, current_user.id) %>
+<% end %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    resources :wallets, only: :show
+  end
   root to: 'pages#home'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
