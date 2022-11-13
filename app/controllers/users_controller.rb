@@ -7,9 +7,14 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
 
-    redirect_to '/' if @user.save
+    if @user.save
+      flash[:notice] = "Signed Up Sucessfully, please sign in"
+      redirect_to '/'
+    else
+      flash[:error] = "Failed to signup"
+      render :new
+    end
   end
-
 
   private
 
