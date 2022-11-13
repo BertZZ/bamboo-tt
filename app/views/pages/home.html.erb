@@ -2,7 +2,7 @@
 <%= "Welcome #{current_user.email}" if current_user.present? %>
 <br>
 <br>
-<%= link_to "SIGN UP", new_user_path %>
+<%= link_to "SIGN UP", new_user_path unless current_user %>
 
 
 <%= link_to "LOGIN", login_path unless current_user %>
